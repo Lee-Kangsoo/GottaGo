@@ -1,0 +1,13 @@
+[core]
+	pager = less -FRX
+
+[interactive]
+	diffFilter = /bin/bash scripts/redact-git-output.sh
+
+[alias]
+	safe-diff = "!f(){ git diff \"$@\" | /bin/bash scripts/redact-git-output.sh; }; f"
+	safe-staged = "!f(){ git diff --cached \"$@\" | /bin/bash scripts/redact-git-output.sh; }; f"
+	safe-show = "!f(){ git show \"$@\" | /bin/bash scripts/redact-git-output.sh; }; f"
+	safe-logp = "!f(){ git log -p \"$@\" | /bin/bash scripts/redact-git-output.sh; }; f"
+	safe-grep = "!f(){ git grep \"$@\" | /bin/bash scripts/redact-git-output.sh; }; f"
+	safe-head = "!git safe-show HEAD"
