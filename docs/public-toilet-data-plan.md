@@ -2,7 +2,7 @@
 
 Source file:
 
-- `korea_public_toilet.csv`
+- `data/private/korea_public_toilet.csv`
 
 Purpose:
 

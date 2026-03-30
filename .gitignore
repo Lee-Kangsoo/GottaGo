@@ -3,6 +3,9 @@ node_modules
 .DS_Store
 dist
 coverage
+.vscode
+.codex
+.gitconfig
 .env
 .env.local
 apps/api/.env
@@ -18,3 +21,11 @@ apps/api/node_modules
 apps/mobile/.expo
 apps/mobile/ios/Pods
 apps/mobile/ios/.xcode.env.local
+
+# Local/private data assets
+data/private/
+*.naver-geocoded.csv
+*.naver-geocode-cache.csv
+/korea_public_toilet.csv
+/korea_public_toilet.naver-geocoded.csv
+/korea_public_toilet.naver-geocode-cache.csv

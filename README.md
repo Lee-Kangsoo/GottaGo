@@ -10,6 +10,7 @@ The repository is now scaffolded as a small monorepo:
 For a guided explanation of the current structure and file responsibilities, see:
 
 - `docs/project-structure-guide.md`
+- `docs/private-data-policy.md`
 
 ## Current MVP Shape
 
@@ -161,8 +162,15 @@ After the database schema exists, import the public toilet dataset:
 ```bash
 npm install
 cp apps/api/.env.example apps/api/.env
-npm run import:public-toilets --workspace @gottago/api -- ../../korea_public_toilet.csv
+npm run import:public-toilets --workspace @gottago/api -- data/private/korea_public_toilet.csv
 ```
+
+Data policy:
+
+- real source CSVs and geocoded outputs are treated as private operating assets
+- keep them under `data/private/` or another private storage location
+- do not commit those files to the public repository
+- if you need a sharable example later, add a small redacted sample file instead of the full dataset
 
 Import behavior:
 
@@ -187,7 +195,7 @@ Useful option:
 For large full reloads, use the COPY-based fast path:
 
 ```bash
-npm run import:public-toilets:copy --workspace @gottago/api -- ../../korea_public_toilet.naver-geocoded.csv
+npm run import:public-toilets:copy --workspace @gottago/api -- data/private/korea_public_toilet.naver-geocoded.csv
 ```
 
 ### Build A Geocoded CSV With Naver API
@@ -197,7 +205,7 @@ The source CSV has many rows with missing coordinates. You can enrich those rows
 ```bash
 cp apps/api/.env.example apps/api/.env
 # fill NAVER_MAPS_CLIENT_ID and NAVER_MAPS_CLIENT_SECRET in apps/api/.env
-npm run build:public-toilets-csv --workspace @gottago/api -- ../../korea_public_toilet.csv
+npm run build:public-toilets-csv --workspace @gottago/api -- data/private/korea_public_toilet.csv
 ```
 
 Output behavior:

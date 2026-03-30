@@ -96,8 +96,13 @@ const defaultBatchSize = 1000;
 
 function resolveDefaultCsvPath(): string {
   const candidates = [
+    path.resolve(scriptDir, "../../../data/private/korea_public_toilet.csv"),
+    path.resolve(scriptDir, "../../../../data/private/korea_public_toilet.csv"),
     path.resolve(scriptDir, "../../../korea_public_toilet.csv"),
     path.resolve(scriptDir, "../../../../korea_public_toilet.csv"),
+    path.resolve(process.cwd(), "data/private/korea_public_toilet.csv"),
+    path.resolve(process.cwd(), "../data/private/korea_public_toilet.csv"),
+    path.resolve(process.cwd(), "../../data/private/korea_public_toilet.csv"),
     path.resolve(process.cwd(), "../../korea_public_toilet.csv"),
     path.resolve(process.cwd(), "../korea_public_toilet.csv"),
     path.resolve(process.cwd(), "korea_public_toilet.csv"),
